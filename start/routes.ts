@@ -21,5 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => {
-  return { hello: 'world' }
+  return { response: 'Welcome to the Stative Core API Server' }
 })
+
+Route.resource('summoner', 'SummonersController')
