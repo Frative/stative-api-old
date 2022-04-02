@@ -16,20 +16,40 @@ export default class SummonersController {
     const { name } = ctx.request.qs()
 
     await prisma.$connect()
-    const summoners = await prisma.summoner.findMany({
-      where: {
-        name: {
-          contains: name,
-          mode: 'insensitive',
-        },
-      },
-    })
+    const summoners = await this.findSummonersByName(name)
 
     if (summoners.length) {
       return { summoners }
     }
 
-    const summonersRequested = await Promise.all(
+    const summonersRequested = await this.fetchSummonersByName(name)
+
+    if (summonersRequested.length) {
+      await prisma.summoner.createMany({
+        data: summonersRequested,
+      })
+    }
+
+    const summonerStored = await this.findSummonersByName(name)
+
+    prisma.$disconnect()
+
+    return { summoners: summonerStored }
+  }
+
+  public async findSummonersByName(name: string) {
+    return await prisma.summoner.findMany({
+      where: {
+        name: {
+          contains: decodeURIComponent(name),
+          mode: 'insensitive',
+        },
+      },
+    })
+  }
+
+  public async fetchSummonersByName(name: string) {
+    const summoners = await Promise.all(
       regions.map((region) =>
         axios
           .request({
@@ -40,27 +60,12 @@ export default class SummonersController {
       )
     )
 
-    const summonersValids = summonersRequested
+    return summoners
       .filter((value) => !!value)
-      .map((summoner) => ({ ...summoner, id: string.generateRandom(15) }))
-
-    if (summonersValids.length) {
-      await prisma.summoner.createMany({
-        data: summonersValids,
-      })
-    }
-
-    const summonersCreated = await prisma.summoner.findMany({
-      where: {
-        name: {
-          contains: name,
-          mode: 'insensitive',
-        },
-      },
-    })
-
-    prisma.$disconnect()
-
-    return { summoners: summonersCreated }
+      .map((summoner) => ({
+        ...summoner,
+        id: string.generateRandom(15),
+        summonerId: summoner.id,
+      }))
   }
 }

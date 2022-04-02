@@ -13,6 +13,7 @@ datasource db {
 
 model Summoner {
   id String @id @map("_id")
+  summonerId String
   accountId String
   puuid String
   name String
