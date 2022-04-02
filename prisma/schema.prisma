@@ -20,4 +20,5 @@ model Summoner {
   profileIconId Int
   revisionDate Int
   summonerLevel Int
+  matches String[]
 }
