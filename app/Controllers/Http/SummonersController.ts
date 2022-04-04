@@ -6,9 +6,11 @@ import axios from 'axios'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { string } from '@ioc:Adonis/Core/Helpers'
 
+// utilities
+import { regions } from 'App/Utilities'
+
 // constants
 const prisma = new PrismaClient()
-const regions = ['la1', 'la2', 'br1', 'eun1', 'euw1', 'jp1', 'kr', 'na1', 'oc1', 'ru', 'tr1']
 // endregion
 
 export default class SummonersController {
@@ -55,7 +57,7 @@ export default class SummonersController {
           .request({
             url: `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.RIOT_API_KEY}`,
           })
-          .then((res) => res.data)
+          .then((res) => ({ ...res.data, region }))
           .catch(() => null)
       )
     )

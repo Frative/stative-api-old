@@ -24,4 +24,5 @@ Route.get('/', async () => {
   return { response: 'Welcome to the Stative Core API Server' }
 })
 
+Route.resource('summoner/matches', 'SummonerMatchesController')
 Route.resource('summoner', 'SummonersController')
