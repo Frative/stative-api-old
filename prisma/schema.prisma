@@ -34,12 +34,12 @@ type MatchMetadata {
   dataVersion String
   matchId String
   participants String[]
-  info MatchInfo
 }
 
 type MatchInfo {
   gameCreation Int
   gameDuration Int
+  gameEndTimestamp Int
   gameId Int
   gameMode String
   gameName String
@@ -47,10 +47,11 @@ type MatchInfo {
   gameType String
   gameVersion String
   mapId Int
-  participants String[]
+  participants MatchInfoParticipant[]
   platformId String
   queueId Int
   teams MatchInfoTeam[]
+  tournamentCode String
 }
 
 type MatchInfoParticipant {
@@ -81,6 +82,7 @@ type MatchInfoParticipant {
   goldSpent Int
   individualPosition String
   inhibitorKills Int
+  inhibitorTakedowns Int
   inhibitorsLost Int
   item0 Int
   item1 Int
@@ -103,6 +105,7 @@ type MatchInfoParticipant {
   neutralMinionsKilled Int
   nexusKills Int
   nexusLost Int
+  nexusTakedowns Int
   objectivesStolen Int
   objectivesStolenAssists Int
   participantId Int
@@ -149,6 +152,7 @@ type MatchInfoParticipant {
   trueDamageDealtToChampions Int
   trueDamageTaken Int
   turretKills Int
+  turretTakedowns Int
   turretsLost Int
   unrealKills Int
   visionScore Int
@@ -185,7 +189,7 @@ type MatchInfoParticipantPerksStyleSelection {
 type MatchInfoTeam {
   bans String[]
   objectives MatchInfoTeamObjective
-  teamdId Int
+  teamId Int
   win Boolean
 }
 

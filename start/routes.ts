@@ -26,3 +26,4 @@ Route.get('/', async () => {
 
 Route.resource('summoner/matches', 'SummonerMatchesController')
 Route.resource('summoner', 'SummonersController')
+Route.resource('matches', 'MatchesController')

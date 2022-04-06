@@ -39,6 +39,8 @@ export default class SummonerMatchesController {
         },
       })
 
+      prisma.$disconnect()
+
       return { matches: summonerUpdated.matches }
     }
 
