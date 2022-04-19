@@ -21,188 +21,187 @@ model Summoner {
   profileIconId Int
   revisionDate Int
   summonerLevel Int
-  matches String[]
 }
 
-model Match {
-  id String @id @map("_id")
-  metadata MatchMetadata
-  info MatchInfo
-}
+// model Match {
+//   id String @id @map("_id")
+//   metadata MatchMetadata
+//   info MatchInfo
+// }
 
-type MatchMetadata {
-  dataVersion String
-  matchId String
-  participants String[]
-}
+// type MatchMetadata {
+//   dataVersion String
+//   matchId String
+//   participants String[]
+// }
 
-type MatchInfo {
-  gameCreation Int
-  gameDuration Int
-  gameEndTimestamp Int
-  gameId Int
-  gameMode String
-  gameName String
-  gameStartTimestamp Int
-  gameType String
-  gameVersion String
-  mapId Int
-  participants MatchInfoParticipant[]
-  platformId String
-  queueId Int
-  teams MatchInfoTeam[]
-  tournamentCode String
-}
+// type MatchInfo {
+//   gameCreation Int
+//   gameDuration Int
+//   gameEndTimestamp Int
+//   gameId Int
+//   gameMode String
+//   gameName String
+//   gameStartTimestamp Int
+//   gameType String
+//   gameVersion String
+//   mapId Int
+//   participants MatchInfoParticipant[]
+//   platformId String
+//   queueId Int
+//   teams MatchInfoTeam[]
+//   tournamentCode String
+// }
 
-type MatchInfoParticipant {
-  assists Int
-  baronKills Int
-  bountyLevel Int
-  champExperience Int
-  champLevel Int
-  championId Int
-  championName String
-  championTransform Int
-  consumablesPurchased Int
-  damageDealtToBuildings Int
-  damageDealtToObjectives Int
-  damageDealtToTurrets Int
-  damageSelfMitigated Int
-  deaths Int
-  detectorWardsPlaced Int
-  doubleKills Int
-  dragonKills Int
-  firstBloodAssist Boolean
-  firstBloodKill Boolean
-  firstTowerAssist Boolean
-  firstTowerKill Boolean
-  gameEndedInEarlySurrender Boolean
-  gameEndedInSurrender Boolean
-  goldEarned Int
-  goldSpent Int
-  individualPosition String
-  inhibitorKills Int
-  inhibitorTakedowns Int
-  inhibitorsLost Int
-  item0 Int
-  item1 Int
-  item2 Int
-  item3 Int
-  item4 Int
-  item5 Int
-  item6 Int
-  itemsPurchased Int
-  killingSprees Int
-  kills Int
-  lane String
-  largestCriticalStrike Int
-  largestKillingSpree Int
-  largestMultiKill Int
-  longestTimeSpentLiving Int
-  magicDamageDealt Int
-  magicDamageDealtToChampions Int
-  magicDamageTaken Int
-  neutralMinionsKilled Int
-  nexusKills Int
-  nexusLost Int
-  nexusTakedowns Int
-  objectivesStolen Int
-  objectivesStolenAssists Int
-  participantId Int
-  pentaKills Int
-  perks MatchInfoParticipantPerks
-  physicalDamageDealt Int
-  physicalDamageDealtToChampions Int
-  physicalDamageTaken Int
-  profileIcon Int
-  puuid String
-  quadraKills Int
-  riotIdName String
-  riotIdTagline String
-  role String
-  sightWardsBoughtInGame Int
-  spell1Casts Int
-  spell2Casts Int
-  spell3Casts Int
-  spell4Casts Int
-  summoner1Casts Int
-  summoner1Id Int
-  summoner2Casts Int
-  summoner2Id Int
-  summonerId String
-  summonerLevel Int
-  summonerName String
-  teamEarlySurrendered Boolean
-  teamId Int
-  teamPosition String
-  timeCCingOthers Int
-  timePlayed Int
-  totalDamageDealt Int
-  totalDamageDealtToChampions Int
-  totalDamageShieldedOnTeammates Int
-  totalDamageTaken Int
-  totalHeal Int
-  totalHealsOnTeammates Int
-  totalMinionsKilled Int
-  totalTimeCCDealt Int
-  totalTimeSpentDead Int
-  totalUnitsHealed Int
-  tripleKills Int
-  trueDamageDealt Int
-  trueDamageDealtToChampions Int
-  trueDamageTaken Int
-  turretKills Int
-  turretTakedowns Int
-  turretsLost Int
-  unrealKills Int
-  visionScore Int
-  visionWardsBoughtInGame Int
-  wardsKilled Int
-  wardsPlaced Int
-  win Boolean
-}
+// type MatchInfoParticipant {
+//   assists Int
+//   baronKills Int
+//   bountyLevel Int
+//   champExperience Int
+//   champLevel Int
+//   championId Int
+//   championName String
+//   championTransform Int
+//   consumablesPurchased Int
+//   damageDealtToBuildings Int
+//   damageDealtToObjectives Int
+//   damageDealtToTurrets Int
+//   damageSelfMitigated Int
+//   deaths Int
+//   detectorWardsPlaced Int
+//   doubleKills Int
+//   dragonKills Int
+//   firstBloodAssist Boolean
+//   firstBloodKill Boolean
+//   firstTowerAssist Boolean
+//   firstTowerKill Boolean
+//   gameEndedInEarlySurrender Boolean
+//   gameEndedInSurrender Boolean
+//   goldEarned Int
+//   goldSpent Int
+//   individualPosition String
+//   inhibitorKills Int
+//   inhibitorTakedowns Int
+//   inhibitorsLost Int
+//   item0 Int
+//   item1 Int
+//   item2 Int
+//   item3 Int
+//   item4 Int
+//   item5 Int
+//   item6 Int
+//   itemsPurchased Int
+//   killingSprees Int
+//   kills Int
+//   lane String
+//   largestCriticalStrike Int
+//   largestKillingSpree Int
+//   largestMultiKill Int
+//   longestTimeSpentLiving Int
+//   magicDamageDealt Int
+//   magicDamageDealtToChampions Int
+//   magicDamageTaken Int
+//   neutralMinionsKilled Int
+//   nexusKills Int
+//   nexusLost Int
+//   nexusTakedowns Int
+//   objectivesStolen Int
+//   objectivesStolenAssists Int
+//   participantId Int
+//   pentaKills Int
+//   perks MatchInfoParticipantPerks
+//   physicalDamageDealt Int
+//   physicalDamageDealtToChampions Int
+//   physicalDamageTaken Int
+//   profileIcon Int
+//   puuid String
+//   quadraKills Int
+//   riotIdName String
+//   riotIdTagline String
+//   role String
+//   sightWardsBoughtInGame Int
+//   spell1Casts Int
+//   spell2Casts Int
+//   spell3Casts Int
+//   spell4Casts Int
+//   summoner1Casts Int
+//   summoner1Id Int
+//   summoner2Casts Int
+//   summoner2Id Int
+//   summonerId String
+//   summonerLevel Int
+//   summonerName String
+//   teamEarlySurrendered Boolean
+//   teamId Int
+//   teamPosition String
+//   timeCCingOthers Int
+//   timePlayed Int
+//   totalDamageDealt Int
+//   totalDamageDealtToChampions Int
+//   totalDamageShieldedOnTeammates Int
+//   totalDamageTaken Int
+//   totalHeal Int
+//   totalHealsOnTeammates Int
+//   totalMinionsKilled Int
+//   totalTimeCCDealt Int
+//   totalTimeSpentDead Int
+//   totalUnitsHealed Int
+//   tripleKills Int
+//   trueDamageDealt Int
+//   trueDamageDealtToChampions Int
+//   trueDamageTaken Int
+//   turretKills Int
+//   turretTakedowns Int
+//   turretsLost Int
+//   unrealKills Int
+//   visionScore Int
+//   visionWardsBoughtInGame Int
+//   wardsKilled Int
+//   wardsPlaced Int
+//   win Boolean
+// }
 
-type MatchInfoParticipantPerks {
-  statPerks StatPerks
-  styles MatchInfoParticipantPerksStyle[]
-}
+// type MatchInfoParticipantPerks {
+//   statPerks StatPerks
+//   styles MatchInfoParticipantPerksStyle[]
+// }
 
-type StatPerks {
-  defense Int
-  flex Int
-  offense Int
-}
+// type StatPerks {
+//   defense Int
+//   flex Int
+//   offense Int
+// }
 
-type MatchInfoParticipantPerksStyle {
-  description String
-  selections MatchInfoParticipantPerksStyleSelection[]
-  style Int
-}
+// type MatchInfoParticipantPerksStyle {
+//   description String
+//   selections MatchInfoParticipantPerksStyleSelection[]
+//   style Int
+// }
 
-type MatchInfoParticipantPerksStyleSelection {
-  perk Int
-  var1 Int
-  var2 Int
-  var3 Int
-}
+// type MatchInfoParticipantPerksStyleSelection {
+//   perk Int
+//   var1 Int
+//   var2 Int
+//   var3 Int
+// }
 
-type MatchInfoTeam {
-  bans String[]
-  objectives MatchInfoTeamObjective
-  teamId Int
-  win Boolean
-}
+// type MatchInfoTeam {
+//   bans String[]
+//   objectives MatchInfoTeamObjective
+//   teamId Int
+//   win Boolean
+// }
 
-type MatchInfoTeamObjective {
-  baron MatchInfoTeamObjectiveElement
-  champion MatchInfoTeamObjectiveElement
-  dragon MatchInfoTeamObjectiveElement
-  inhibitor MatchInfoTeamObjectiveElement
-  riftHerald MatchInfoTeamObjectiveElement
-  tower MatchInfoTeamObjectiveElement
-}
+// type MatchInfoTeamObjective {
+//   baron MatchInfoTeamObjectiveElement
+//   champion MatchInfoTeamObjectiveElement
+//   dragon MatchInfoTeamObjectiveElement
+//   inhibitor MatchInfoTeamObjectiveElement
+//   riftHerald MatchInfoTeamObjectiveElement
+//   tower MatchInfoTeamObjectiveElement
+// }
 
-type MatchInfoTeamObjectiveElement {
-  first Boolean
-  kills Int
-}
+// type MatchInfoTeamObjectiveElement {
+//   first Boolean
+//   kills Int
+// }

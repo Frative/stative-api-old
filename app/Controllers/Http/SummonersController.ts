@@ -17,6 +17,8 @@ export default class SummonersController {
   public async index(ctx: HttpContextContract) {
     const { name } = ctx.request.qs()
 
+    if (!name) return { summoners: [] }
+
     await prisma.$connect()
     const summoners = await this.findSummonersByName(name)
 
@@ -43,7 +45,7 @@ export default class SummonersController {
     return await prisma.summoner.findMany({
       where: {
         name: {
-          contains: decodeURIComponent(name),
+          equals: decodeURIComponent(name),
           mode: 'insensitive',
         },
       },

@@ -1,5 +1,10 @@
 export const regions = ['la1', 'la2', 'br1', 'eun1', 'euw1', 'jp1', 'kr', 'na1', 'oc1', 'ru', 'tr1']
 
+export const regionNames = {
+  lan: 'la1',
+  
+}
+
 export const regionContinent = {
   la1: 'americas',
   la2: 'americas',
