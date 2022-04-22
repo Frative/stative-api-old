@@ -44,7 +44,7 @@ const corsConfig: CorsConfig = {
   |                     one of the above values.
   |
   */
-  origin: ['http://localhost:8080'],
+  origin: ['http://localhost:8080', 'https://stative.app'],
 
   /*
   |--------------------------------------------------------------------------
