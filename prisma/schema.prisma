@@ -35,6 +35,7 @@ type MatchParticipant {
   puuid String
   score Int
   championName String
+  win Boolean
   perks MatchParticipantPerks
 }
 

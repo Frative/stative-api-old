@@ -96,6 +96,7 @@ export default class SummonerMatchesController {
                 score,
                 perks: p.perks,
                 puuid: p.puuid,
+                win: p.win,
                 championName: p.championName,
               }
             })
