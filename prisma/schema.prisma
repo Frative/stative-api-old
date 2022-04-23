@@ -21,3 +21,43 @@ model Summoner {
   revisionDate Int
   summonerLevel Int
 }
+
+model Match {
+  id String @id @map("_id")
+  gameVersion String
+  gameCreation Int
+  gameDuration Int
+  gameMode String
+  participants MatchParticipant[]
+}
+
+type MatchParticipant {
+  puuid String
+  score Int
+  championName String
+  perks MatchParticipantPerks
+}
+
+type MatchParticipantPerks {
+  statPerks StatPerks
+  styles MatchParticipantPerksStyle[]
+}
+
+type StatPerks {
+  defense Int
+  flex Int
+  offense Int
+}
+
+type MatchParticipantPerksStyle {
+  description String
+  selections MatchParticipantPerksStyleSelection[]
+  style Int
+}
+
+type MatchParticipantPerksStyleSelection {
+  perk Int
+  var1 Int
+  var2 Int
+  var3 Int
+}
